@@ -17,11 +17,14 @@ function TodoForm({ addTodo }: Props) {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        type="text"
+        aria-label="Add todo"
         value={input}
         onChange={e => setInput(e.target.value)}
         placeholder="Add a task..."
+        required
       />
-      <button type="submit">Add</button>
+      <button type="submit" aria-label="Add todo">Add</button>
     </form>
   );
 }

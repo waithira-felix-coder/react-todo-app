@@ -66,3 +66,65 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* App container and todo styles */
+.container {
+  max-width: 720px;
+  margin: 3rem auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+.container h1 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+}
+
+form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  flex: 1 1 auto;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+  color: inherit;
+  font-size: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  background: rgba(0,0,0,0.12);
+}
+
+li span {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.muted {
+  color: rgba(255,255,255,0.6);
+}
+
+@media (prefers-color-scheme: light) {
+  .container { box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+  li { background: rgba(0,0,0,0.03); }
+}

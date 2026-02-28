@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import { Todo } from "./types/todo";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
-import TodoFilter from "./components/TodoFilter";
+import TodoForm from "./Components/TodoForm";
+import TodoList from "./Components/TodoList";
+import TodoFilter from "./Components/TodoFilter";
 
 type Filter = "all" | "active" | "completed";
 

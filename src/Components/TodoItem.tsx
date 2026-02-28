@@ -19,7 +19,7 @@ function TodoItem({ todo, toggleTodo, deleteTodo }: Props) {
         {todo.text}
       </span>
 
-      <button onClick={() => deleteTodo(todo.id)}>
+      <button onClick={() => deleteTodo(todo.id)} aria-label={`Delete ${todo.text}`} title="Delete todo">
         Delete
       </button>
     </li>
