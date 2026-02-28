@@ -1,4 +1,4 @@
-import { Todo } from "../types/todo";
+import type { Todo } from "../types/todo";
 
 interface Props {
   todo: Todo;
@@ -13,13 +13,17 @@ function TodoItem({ todo, toggleTodo, deleteTodo }: Props) {
         onClick={() => toggleTodo(todo.id)}
         style={{
           textDecoration: todo.completed ? "line-through" : "none",
-          cursor: "pointer"
+          cursor: "pointer",
         }}
       >
         {todo.text}
       </span>
 
-      <button onClick={() => deleteTodo(todo.id)} aria-label={`Delete ${todo.text}`} title="Delete todo">
+      <button
+        onClick={() => deleteTodo(todo.id)}
+        aria-label={`Delete ${todo.text}`}
+        title="Delete todo"
+      >
         Delete
       </button>
     </li>

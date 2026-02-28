@@ -8,20 +8,24 @@ interface Props {
 
 function TodoFilter({ filter, setFilter, clearCompleted }: Props) {
   return (
-    <div>
-      <button onClick={() => setFilter("all")}>
+    <div role="group" aria-label="Filter todos">
+      <button aria-pressed={filter === "all"} onClick={() => setFilter("all")}>
         All
       </button>
-      <button onClick={() => setFilter("active")}>
+      <button
+        aria-pressed={filter === "active"}
+        onClick={() => setFilter("active")}
+      >
         Active
       </button>
-      <button onClick={() => setFilter("completed")}>
+      <button
+        aria-pressed={filter === "completed"}
+        onClick={() => setFilter("completed")}
+      >
         Completed
       </button>
 
-      <button onClick={clearCompleted}>
-        Clear Completed
-      </button>
+      <button onClick={clearCompleted}>Clear Completed</button>
     </div>
   );
 }

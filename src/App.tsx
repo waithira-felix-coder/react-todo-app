@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Todo } from "./types/todo";
+import type { Todo } from "./types/todo";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import TodoForm from "./Components/TodoForm";
 import TodoList from "./Components/TodoList";
