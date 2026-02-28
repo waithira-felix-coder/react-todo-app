@@ -19,55 +19,64 @@ If you are developing a production application, we recommend updating the config
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    # React Todo App
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+    This is a small Todo application built with React, TypeScript and Vite. It provides a minimal, production-ready example including local persistence, filtering and basic accessibility.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    **Main features**
+    - Add todos with a title
+    - Toggle completion status
+    - Delete individual todos
+    - Filter todos by All / Active / Completed
+    - Clear all completed todos
+    - Persistence via `localStorage`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    Files of interest
+    - `src/App.tsx` — app shell and state management
+    - `src/Components` — `TodoForm`, `TodoList`, `TodoItem`, `TodoFilter`
+    - `src/hooks/useLocalStorage.ts` — localStorage-backed state hook
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    Development
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    1. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+    2. Run the dev server with hot reload:
+
+    ```bash
+    npm run dev
+    ```
+
+    3. Lint the project:
+
+    ```bash
+    npm run lint
+    ```
+
+    Build & Deployment
+
+    Create a production build and preview it locally:
+
+    ```bash
+    npm run build
+    npm run preview
+    ```
+
+    The `dist/` folder contains the production-ready static assets produced by Vite and can be deployed to any static hosting provider (Netlify, Vercel, GitHub Pages, or a plain web server).
+
+    Usage
+
+    - Type a task into the input and press `Add` or Enter to create a todo.
+    - Click a todo text to toggle completion.
+    - Use the filter buttons to switch between views.
+    - Click `Clear Completed` to remove finished tasks.
+
+    Accessibility & Notes
+
+    - Buttons expose `aria-pressed` where relevant and inputs include `aria-label` for assistive technologies.
+    - Todos are persisted to `localStorage` under the `todos` key.
+
+    If you'd like, I can add CI deployment config (GitHub Actions) or a small test suite next.
